@@ -2,16 +2,16 @@
 USE sakila;
 
 -- 1) Film prices , From film, show: film_id, title, rental_rate Get only the films where rental_rate is 9.99 or 4.99.
-SELECT film_id, title, rental_rate
+SELECT film_id, title, rental_rate 
 FROM film
-WHERE rental_rate IN (9.99, 4.99);--
--- WHERE rental_rate = 9.99
+WHERE rental_rate IN (9.99, 4.99);-- 
+-- WHERE rental_rate = 9.99 
 --     OR rental_rate = 4.99;
 
 -- 2) Film length + rating , From film, show: title, length, rating Find films that are 90 to 120 minutes (inclusive) 
 -- and rating is PG or PG-13.
-SELECT title, length, rating
-FROM film
+SELECT title, length, rating 
+FROM film 
 WHERE LENGTH BETWEEN 90 AND 120
       AND rating IN ('PG', 'PG-13');
 -- WHERE LENGTH BETWEEN 90 AND 120
@@ -20,7 +20,7 @@ WHERE LENGTH BETWEEN 90 AND 120
 -- 3) Actor last names , From actor, show: actor_id, first_name, last_name Find actors whose last_name starts with S OR ends with N.
 SELECT actor_id, first_name, last_name
 FROM actor
-WHERE last_name LIKE 'S%' OR
+WHERE last_name LIKE 'S%' OR 
       last_name LIKE '%N';
 
 -- 4) Active customers + email filter , From customer, show: customer_id, first_name, last_name, email
@@ -28,14 +28,14 @@ WHERE last_name LIKE 'S%' OR
 SELECT customer_id, first_name, last_name, email
 FROM customer
 WHERE active = 1
-      AND (email LIKE '%.org%' OR email LIKE '%.net%');
+     AND (email LIKE '%.org%' OR email LIKE '%.net%');
 
 -- 5)  Inactive customers in store 1 , From customer, show: customer_id, store_id, active
 -- Find customers from store 1 who are not active.
 SELECT customer_id, store_id, active
 FROM customer
 WHERE store_id = 1
-      AND active = 0;
+      AND active = 0; 
 
 -- 6) Payment amount + date range , From payment, show: payment_id, customer_id, amount, payment_date
 -- Find payments with amount between 2.00 and 5.00 and made in February 2007.
